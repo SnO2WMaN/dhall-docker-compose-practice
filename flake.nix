@@ -13,17 +13,24 @@
       inputs.flake-utils.follows = "flake-utils";
     };
   };
-  outputs = { self, nixpkgs, nixops-plugged, flake-utils, ... }@inputs:
+  outputs = { self, nixpkgs, devshell, flake-utils, ... }@inputs:
     flake-utils.lib.eachDefaultSystem (
       system: {
         devShell =
           let pkgs = import nixpkgs {
             inherit system;
-            overlays = [ devshell.overlay ];
+            overlays = [
+              devshell.overlay
+              (final: prev: {
+                taplo-cli = prev.taplo-cli.overrideAttrs (old: rec { version = "0.6.2"; });
+              })
+            ];
           };
           in
           pkgs.devshell.mkShell {
-            imports = [ (pkgs.devshell.importTOML ./devshell.toml) ];
+            imports = [
+              (pkgs.devshell.importTOML ./devshell.toml)
+            ];
           };
       }
     );
