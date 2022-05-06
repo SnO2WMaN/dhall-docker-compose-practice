@@ -1,0 +1,10 @@
+[devshell]
+name = "dhall-docker-compose"
+packages = [ 
+    "dhall"
+]
+
+[[commands]]
+name = "hello"
+help = "prints hello"
+command = "echo hello"
