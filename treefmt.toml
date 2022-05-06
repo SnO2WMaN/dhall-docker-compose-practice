@@ -1,0 +1,13 @@
+[formatter.nix]
+command = "nixpkgs-fmt"
+includes = ["*.nix"]
+
+[formatter.dhall]
+command = "dhall"
+options = ["format"]
+includes = ["*.dhall"]
+
+# [formatter.toml]
+# command = "taplo"
+# options = ["format"]
+# includes = ["*.toml"]
