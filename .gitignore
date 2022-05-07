@@ -1,2 +1,8 @@
+# out
+docker-compose.yml
+
 # direnv
-.direnv
+.direnv/
+
+# VSCode
+.vscode/settings.json
