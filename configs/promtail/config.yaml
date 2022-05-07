@@ -1,0 +1,58 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: nginx
+    static_configs:
+      - targets:
+          - nginx
+        labels:
+          job: access_log
+          __path__: /var/log/nginx/access.log
+    pipeline_stages:
+      - match:
+          selector: '{job="access_log"}'
+          stages:
+            - regex:
+                expression: "\
+                  ^\
+                  time:(?P<time>.*)\t\
+                  remote_addr:(?P<remote_addr>.*)\t\
+                  remote_port:(?P<remote_port>.*)\t\
+                  server_protocol:(?P<server_protocol>.*)\t\
+                  request_uri:(?P<request_uri>.*)\t\
+                  request_method:(?P<request_method>.*)\t\
+                  request_length:(?P<request_length>.*)\t\
+                  request_time:(?P<request_time>.*)\t\
+                  bytes_sent:(?P<bytes_sent>.*)\t\
+                  body_bytes_sent:(?P<body_bytes_sent>.*)\t\
+                  status:(?P<status>.*)\t\
+                  user_agent:(?P<user_agent>.*)\t\
+                  referer:(?P<referer>.*)\t\
+                  forwarded_for:(?P<forwarded_for>.*)\t\
+                  country:(?P<country>.*)\
+                  $\
+                  "
+            - labels:
+                time:
+                remote_addr:
+                remote_port:
+                server_protocol:
+                request_uri:
+                request_method:
+                request_length:
+                request_time:
+                bytes_sent:
+                body_bytes_sent:
+                status:
+                user_agent:
+                referer:
+                forwarded_for:
+                country:
