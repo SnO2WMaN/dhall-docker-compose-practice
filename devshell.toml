@@ -4,7 +4,7 @@ packages = [
   "dhall",
   "treefmt",
   "nixpkgs-fmt",
-  "taplo-cli",
+	"taplo-cli",
   "dhall-json",
 ]
 
@@ -12,3 +12,8 @@ packages = [
 name = "format"
 help = "format files"
 command = "treefmt"
+
+[[commands]]
+name = "generate"
+help = "generate docker compose file"
+command = "cat docker-compose.dhall | dhall-to-yaml"
