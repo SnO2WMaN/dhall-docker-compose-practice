@@ -7,7 +7,7 @@ command = "dhall"
 options = ["format"]
 includes = ["*.dhall"]
 
-# [formatter.toml]
-# command = "taplo"
-# options = ["format"]
-# includes = ["*.toml"]
+[formatter.toml]
+command = "taplo"
+options = ["format"]
+includes = ["*.toml"]

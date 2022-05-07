@@ -1,12 +1,6 @@
 [devshell]
 name = "dhall-docker-compose"
-packages = [
-  "dhall",
-  "treefmt",
-  "nixpkgs-fmt",
-	"taplo-cli",
-  "dhall-json",
-]
+packages = ["dhall", "treefmt", "nixpkgs-fmt", "taplo-cli", "dhall-json"]
 
 [[commands]]
 name = "format"
