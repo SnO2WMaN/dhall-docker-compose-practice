@@ -1,5 +1,5 @@
 let Map =
-      https://raw.githubusercontent.com/dhall-lang/dhall-lang/master/Prelude/Map/Type
+      https://raw.githubusercontent.com/dhall-lang/dhall-lang/master/Prelude/Map/Type.dhall
 
 let Port
     : Type
