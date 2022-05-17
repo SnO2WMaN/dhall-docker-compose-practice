@@ -6,7 +6,7 @@ let nginxService =
       , ports = Some
         [ Compose.ServicePort.Long { published = 8080, target = 80 } ]
       , volumes = Some
-        [ Compose.ServiceVolume.Short "nginx_log/nginx:/var/log/nginx"
+        [ Compose.ServiceVolume.Short "nginx_log:/var/log/nginx"
         , Compose.ServiceVolume.Long
             { type = "bind"
             , source = "./configs/nginx/nginx.conf"
@@ -20,7 +20,7 @@ let promtailService =
       , image = "grafana/promtail:2.5.0"
       , command = Some "-config.file=/etc/promtail/config.yaml"
       , volumes = Some
-        [ Compose.ServiceVolume.Short "nginx_log/nginx:/var/log/nginx"
+        [ Compose.ServiceVolume.Short "nginx_log:/var/log/nginx"
         , Compose.ServiceVolume.Long
             { type = "bind"
             , source = "./configs/promtail/config.yaml"
