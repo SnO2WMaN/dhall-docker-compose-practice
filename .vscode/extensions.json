@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "jnoortheen.nix-ide",
+    "arrterian.nix-env-selector",
+    "pickoba.satysfi-workshop",
+    "tamasfe.even-better-toml",
+    "jkillian.custom-local-formatters",
+		"dhall.dhall-lang",
+		"dhall.vscode-dhall-lsp-server"
+  ]
+}

@@ -1,13 +1,13 @@
-[formatter.nix]
-command = "nixpkgs-fmt"
+[formatter.alejandra]
+command = "alejandra"
 includes = ["*.nix"]
+
+[formatter.dprint]
+command = "dprint"
+options = ["fmt"]
+includes = ["*.json", "*.toml", "*.md"]
 
 [formatter.dhall]
 command = "dhall"
 options = ["format"]
 includes = ["*.dhall"]
-
-[formatter.toml]
-command = "taplo"
-options = ["format"]
-includes = ["*.toml"]

@@ -1,13 +1,19 @@
 [devshell]
 name = "dhall-docker-compose"
-packages = ["dhall", "treefmt", "nixpkgs-fmt", "taplo-cli", "dhall-json"]
+packages = [
+  "alejandra",
+  "dhall-json",
+  "dhall-lsp-server",
+  "dhall",
+  "dprint",
+  "nixpkgs-fmt",
+  "treefmt",
+]
 
 [[commands]]
-name = "format"
-help = "format files"
-command = "treefmt"
+package = "treefmt"
+category = "formatter"
 
 [[commands]]
 name = "generate"
-help = "generate docker compose file"
 command = "cat docker-compose.dhall | dhall-to-yaml"

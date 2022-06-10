@@ -29,6 +29,7 @@ let promtailService =
         ]
       }
 
+
 let lokiService =
       Compose.Service::{
       , image = "grafana/loki:2.5.0"

@@ -3,6 +3,3 @@ docker-compose.yml
 
 # direnv
 .direnv/
-
-# VSCode
-.vscode/settings.json
